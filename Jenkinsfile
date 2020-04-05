@@ -8,9 +8,11 @@ pipeline {
                 }
             }
             steps {
-                sh 'pip install django'//install django
-                sh 'manage.py migrate'//creates the sqlite database
-                sh 'manage.py test'//run test
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+     				sh 'pip install django --user'//install django
+              		sh 'manage.py migrate'//creates the sqlite database
+               		sh 'manage.py test'//run test
+  				}
             }
         }
         
