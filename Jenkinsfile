@@ -9,6 +9,7 @@ pipeline {
             }
             steps {
                 sh 'ls -R'
+                sh 'echo helloworld'
             }
         }
         
