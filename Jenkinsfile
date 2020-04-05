@@ -1,15 +1,16 @@
 pipeline {
     agent none
     stages {
-        stage('Build') {
+        stage('Test') {
             agent {
                 docker {
-                    image 'python:2-alpine'
+                    image 'python:3'//select python 3
                 }
             }
             steps {
-                sh 'ls -R'
-                sh 'echo helloworld'
+                sh 'pip install django'//install django
+                sh 'manage.py migrate'//creates the sqlite database
+                sh 'manage.py test'//run test
             }
         }
         
