@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    align-items: center;
+}
+
+header div.logo {
+    width: 250px;
+    padding-left: 20px;
+}
+
+header div.main-menu{
+    flex-grow: 1;
+    text-align: right;
+}
+
+header div.login-box{
+    width: 200px;
+    text-align: right;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+ul.errorlist{
+    color: red;
+}
+
+form.myform {
+    padding: 20px;
+}
+
+form.myform div.input{
+
+}
+
+form.myform label{
+    margin-top: 10px;
+    margin-bottom: 2px;
+    display: block;
+}
+
+form.myform input[type="submit"] {
+    margin-top: 10px;
+}
