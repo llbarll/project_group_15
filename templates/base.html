@@ -12,9 +12,11 @@
             </a>
         </div>
         <div class="main-menu">
-            <a href="/">Homepage</a> |
-            Doctor appointment |
-            Clinics
+            <a href="/">Homepage</a>
+            {% if user.is_authenticated and user.citizen %} 
+            	| Doctor appointment 
+           	 	| Clinics
+           	{% endif %}
         </div>
         <div class="login-box">
             {% if user.is_anonymous %}
