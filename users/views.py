@@ -25,7 +25,10 @@ def register(request):
             # Our custom properties
             new_customer.phone_number = data['phone_number']
             new_customer.address = data['address']
-            new_customer.citizen = True
+            if new_customer.username.endswith('M'):
+                new_customer.secretary = True
+            else:
+                new_customer.citizen = True
             new_customer.save()
 
             return HttpResponseRedirect(reverse("register_thanks"))

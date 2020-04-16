@@ -14,15 +14,19 @@ class RegistrationForm(forms.Form):
     address = forms.CharField(min_length=4)
 
     def clean_id_number(self):
-        id_num = self.cleaned_data["id_number"]
+        full_id = self.cleaned_data["id_number"]
+        if full_id.endswith('M') or full_id.endswith('A'):
+            id_num=full_id[0:-1]
+        else:
+            id_num=full_id  
 
         if not id_num.isdigit():
             raise forms.ValidationError("ID number should only contain digits")
 
-        if Customer.objects.filter(username=id_num).exists():
+        if Customer.objects.filter(username=full_id).exists():
             raise forms.ValidationError("A customer with this ID number is already registered")
 
-        return id_num
+        return full_id
 
     def clean_phone_number(self):
         phone_number = self.cleaned_data["phone_number"]
