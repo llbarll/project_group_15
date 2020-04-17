@@ -39,4 +39,28 @@ class RegistrationTests (TestCase):
         form = RegistrationForm()
         form.cleaned_data = {'phone_number':'154935763a'}
         self.assertRaises(ValidationError,form.clean_phone_number)  
-        
+    
+    
+    
+    def test_validate_first_name(self):
+        form = RegistrationForm()
+        form.cleaned_data = {'first_name':'tamar'}
+        result = form.clean_first_name()
+        self.assertEqual(result, 'tamar')
+    
+    def test_reject_invalid_first_name(self):
+        form = RegistrationForm()
+        form.cleaned_data = {'first_name':'tamar1'}
+        self.assertRaises(ValidationError,form.clean_first_name) 
+    
+    def test_validate_last_name(self):
+        form = RegistrationForm()
+        form.cleaned_data = {'last_name':'cohen'}
+        result = form.clean_last_name()
+        self.assertEqual(result, 'cohen')
+    
+    def test_reject_invalid_last_name(self):
+        form = RegistrationForm()
+        form.cleaned_data = {'last_name':'cohen1'}
+        self.assertRaises(ValidationError,form.clean_last_name)
+    

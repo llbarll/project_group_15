@@ -39,7 +39,7 @@ class RegistrationForm(forms.Form):
     def clean_first_name(self):
         first_name = self.cleaned_data["first_name"].lower()
 
-        if first_name.isdigit():
+        if not first_name.isalpha():
             raise forms.ValidationError("first name shouldn't have digits")
 
         return first_name
@@ -47,7 +47,7 @@ class RegistrationForm(forms.Form):
     def clean_last_name(self):
         last_name = self.cleaned_data["last_name"].lower()
 
-        if last_name.isdigit():
+        if not last_name.isalpha():
             raise forms.ValidationError("last name shouldn't have digits")
 
         return last_name
