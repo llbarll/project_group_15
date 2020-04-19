@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from homepage.views import homepage
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homepage),
     path('users/', include('users.urls')),
+    url('appointment_files/', include('appointments.urls')),
 
 ]
