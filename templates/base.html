@@ -14,7 +14,7 @@
         <div class="main-menu">
             <a href="/">Homepage</a>
             {% if user.is_authenticated and user.citizen %} 
-            	| Doctor appointment 
+            	| <a href="{% url "index" %}">Doctor appointment</a> 
            	 	| Clinics
            	{% endif %}
         </div>
