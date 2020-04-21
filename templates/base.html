@@ -17,6 +17,10 @@
             	| Doctor appointment 
            	 	| Clinics
            	{% endif %}
+           	{% if user.is_authenticated and user.secretary %} 
+            	| Add
+           	 	| Update
+           	{% endif %}
         </div>
         <div class="login-box">
             {% if user.is_anonymous %}

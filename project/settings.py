@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'appointments',
     'bootstrap4',
     'bootstrap3',
+    'secretary',
 ]
 
 MIDDLEWARE = [
