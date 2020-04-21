@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'homepage',
     'users',
     'citizen',
+    'appointments',
+    'bootstrap4',
+    'bootstrap3',
     'secretary',
 ]
 
